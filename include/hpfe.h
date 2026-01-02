@@ -5,8 +5,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-typedef struct
-{
+typedef struct {
     const char *iface; // interface name
     int verbose;       // 0..2
     int duration_sec;  // 0 = run forever

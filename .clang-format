@@ -1,0 +1,10 @@
+Language: C
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 100
+BreakBeforeBraces: Attach
+PointerAlignment: Right
+AllowShortEnumsOnASingleLine: false
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+TrimTrailingWhitespace: true

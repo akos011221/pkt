@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 #include "log.h"
 
 #include <stdio.h>
@@ -5,15 +6,10 @@
 
 static log_level_t g_level = LOG_INFO;
 
-void log_level_set(log_level_t level)
-{
-    g_level = level;
-}
+void log_set_level(log_level_t level) { g_level = level; }
 
-static const char *level_to_string(log_level_t level)
-{
-    switch (level)
-    {
+static const char *level_to_string(log_level_t level) {
+    switch (level) {
     case LOG_ERROR:
         return "ERROR";
     case LOG_WARN:
@@ -48,6 +44,6 @@ void log_msg(log_level_t level, const char *fmt, ...) {
     va_start(ap, fmt);
     vfprintf(stderr, fmt, ap);
     va_end(ap);
-    
+
     fprintf(stderr, "\n");
 }
