@@ -7,8 +7,8 @@
 #include <string.h>
 #include <time.h>
 
-#include "hpfe.h"
 #include "log.h"
+#include "pkt.h"
 
 static volatile sig_atomic_t g_stop = 0;
 
@@ -62,7 +62,7 @@ static int parse_int(const char *s, int *out) {
     return 0;
 }
 
-static int parse_args(int argc, char **argv, hpfe_config_t *cfg) {
+static int parse_args(int argc, char **argv, pkt_config_t *cfg) {
     cfg->iface = NULL;
     cfg->verbose = 1;
     cfg->duration_sec = 0;
@@ -116,7 +116,7 @@ static log_level_t verbosity_to_level(int verbose) {
 }
 
 int main(int argc, char **argv) {
-    hpfe_config_t cfg;
+    pkt_config_t cfg;
 
     if (parse_args(argc, argv, &cfg) != 0) {
         usage(argv[0]);
@@ -125,7 +125,7 @@ int main(int argc, char **argv) {
 
     log_set_level(verbosity_to_level(cfg.verbose));
 
-    log_msg(LOG_INFO, "hpfe started");
+    log_msg(LOG_INFO, "pkt started");
     log_msg(LOG_INFO, "iface=%s, verbose=%d, duration=%d", cfg.iface, cfg.verbose,
             cfg.duration_sec);
 
@@ -148,6 +148,6 @@ int main(int argc, char **argv) {
         }
     }
 
-    log_msg(LOG_INFO, "hpfe shutting down");
+    log_msg(LOG_INFO, "pkt shutting down");
     return 0;
 }
