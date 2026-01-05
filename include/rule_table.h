@@ -54,7 +54,8 @@ uint32_t rule_table_add(rule_table_t *t, const rule_t *rule);
 const rule_t *rule_table_match(const rule_table_t *t, const flow_key_t *k);
 
 /* Helper to build a prefix mask (e.g. 17 -> 255.255.128.0).
-   Returns 0 if prefix is invalid (e.g. 33) */
-uint32_t ipv4_mask_from_prefix(uint8_t prefix_len);
+   Returns false if prefix is invalid (e.g. >32),
+   otherwise writes the mask to out_mask and returns true. */
+bool ipv4_mask_from_prefix(uint8_t prefix_len, uint32_t *out_mask);
 
 #endif
