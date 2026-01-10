@@ -7,7 +7,7 @@
     x & (x-1) = 1000 & 0111 = 0000
 */
 static bool is_pow2(size_t x) {
-    return x != 0 && (x & (x - 1) == 0);
+    return x != 0 && (x & (x - 1)) == 0;
 }
 
 int ring_init(spsc_ring_t *r, size_t capacity) {

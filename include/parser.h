@@ -12,10 +12,8 @@ typedef struct {
     uint8_t protocol;
 } flow_key_t;
 
-/*
-    Parses a packet and builds a flow key.
-    Returns 0 if successful, -1 if not.
-*/
+// Parses a packet and builds a flow key.
+// Returns 0 if successful, -1 if not.
 int parse_flow_key(const uint8_t *pkt, size_t len, flow_key_t *out);
 
 #endif

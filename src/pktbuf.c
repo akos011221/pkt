@@ -7,7 +7,7 @@
 static pthread_mutex_t g_pool_lock = PTHREAD_MUTEX_INITIALIZER;
 
 int pktbuf_pool_init(pktbuf_pool_t *p, size_t capacity) {
-    if (!p || p->capacity == 0) return -1;
+    if (!p || capacity == 0) return -1;
 
     p->free_list = NULL;
     p->capacity = capacity;

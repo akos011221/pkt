@@ -4,17 +4,20 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "pktbuf.h"
+#include "ring.h"
 #include "rule_table.h"
 
-/*
-    Start packet capture on an interface.
-    Blocks until upe is stopped by signal.
-*/
-int rx_start(const char *iface, const rule_table_t *rt);
+typedef struct {
+    const char *iface;
 
-/*
-    Stop packet capture.
-*/
+    pktbuf_pool_t *pool;
+
+    spsc_ring_t *rings;
+    int ring_count;
+} rx_ctx_t;
+
+int rx_start(rx_ctx_t *rx);
 void rx_stop(void);
 
 #endif

@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 #include "log.h"
 #include "tx.h"
 
@@ -5,6 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 
+#include <arpa/inet.h>
 #include <net/ethernet.h>
 #include <net/if.h>
 #include <netpacket/packet.h>
