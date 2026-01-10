@@ -11,6 +11,10 @@ add_executable(upe
   src/rx_pcap.c
   src/parser.c
   src/rule_table.c
+  src/worker.c
+  src/pktbuf.c
+  src/tx_afpacket.c
+  src/ring.c
 )
 
 target_include_directories(upe PRIVATE include)
